@@ -11,10 +11,10 @@ var bunyan = require('bunyan'),
 
 describe('bunyan-rollbar', function() {
   beforeEach(function() {
-    this.rollbarErrorStub = sinon.stub(rollbar, 'handleErrorWithPayloadData', function() {
+    this.rollbarErrorStub = sinon.stub(rollbar, 'handleErrorWithPayloadData').callsFake(function() {
     });
 
-    this.rollbarMessageStub = sinon.stub(rollbar, 'reportMessageWithPayloadData', function() {
+    this.rollbarMessageStub = sinon.stub(rollbar, 'reportMessageWithPayloadData').callsFake(function() {
     });
   });
 
